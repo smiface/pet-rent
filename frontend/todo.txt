@@ -1,0 +1,7 @@
+compress images before render
+sceleton
+
++fix cars title active home page
++умная выборка store -> filters -> setFilters
++max input number addPaymentCard
+

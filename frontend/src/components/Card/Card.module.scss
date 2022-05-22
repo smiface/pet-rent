@@ -1,0 +1,25 @@
+@import "../../another/mixins.scss";
+
+.size-xs {
+  @include card;
+  width: 155px;
+  img {
+    width: 155px;
+  }
+}
+
+.size-m {
+  @include card;
+  width: 493px;
+  img {
+    width: 100%;
+  }
+
+  @media screen and (max-width: 900px) {
+    width: max-content;
+  }
+}
+
+.size-xl {
+  @include card;
+}

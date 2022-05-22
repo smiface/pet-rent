@@ -1,0 +1,89 @@
+@mixin card {
+  text-align: left;
+
+  h3 {
+    font-size: 15px;
+    color: grey;
+    transition: 0.1s;
+
+    &.active {
+      color: black;
+      font-weight: 600;
+    }
+  }
+
+  .wrapper {
+    transition: 0.3s;
+    overflow: hidden;
+    border-radius: 15px;
+
+    img {
+      transition: 0.3s;
+
+      border-radius: 15px;
+      box-shadow: 0px 4px 4px 0px #00000040;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+
+@mixin grid {
+  text-align: left;
+  display: grid;
+  width: calc(100% - 155px - 15px);
+  gap: 15px;
+  justify-items: stretch;
+  align-items: stretch;
+
+  @media screen and (max-width: 1440px) {
+    width: 100%;
+  }
+}
+
+@mixin center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin cardLine {
+  display: grid;
+  grid-template-columns: 250px 150px 250px 50px 50px;
+  align-items: center;
+  button {
+    background: none;
+    outline: unset;
+    border: unset;
+    height: 40px;
+    width: 40px;
+    border-bottom: 1px transparent solid;
+    &:hover {
+      border-bottom: 2px solid #000;
+    }
+  }
+
+  img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@mixin button {
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: unset;
+  border: unset;
+  outline: unset;
+  border: 2px black solid;
+  color: black;
+  transition: 0.3s;
+  &:hover {
+    color: white;
+    background: black;
+  }
+}

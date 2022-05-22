@@ -1,0 +1,45 @@
+@import "../../another/mixins.scss";
+
+header {
+  border-bottom: 2px black solid;
+  display: flex;
+
+  @media screen and (max-width: 1440px) {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .boldLink {
+    font-weight: 600;
+  }
+  
+  justify-content: space-between;
+  align-items: center;
+
+  button {
+    @include button;
+    margin-left: 15px;
+    padding: 5px 15px;
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+
+    .cities_links {
+      a {
+        margin-left: 25px !important;
+      }
+    }
+    a {
+      color: black;
+      text-decoration: unset;
+      &:hover {
+        color: grey;
+      }
+      a::first-letter {
+        text-transform: capitalize;
+      }
+    }
+  }
+}

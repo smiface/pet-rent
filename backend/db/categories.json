@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "title": "buisness",
+    "img": "/static/img/tiny/s-klass.png"
+  },
+  {
+    "id": 2,
+    "title": "comfort",
+    "img": "/static/img/tiny/kia-rio.png"
+  },
+  {
+    "id": 3,
+    "title": "comfort plus",
+    "img": "/static/img/tiny/escalade.png"
+  },
+  {
+    "id": 4,
+    "title": "family",
+    "img": "/static/img/tiny/octavia.png"
+  },
+  {
+    "id": 5,
+    "title": "offroad",
+    "img": "/static/img/tiny/tundra.png"
+  },
+  {
+    "id": 6,
+    "title": "economy",
+    "img": "/static/img/tiny/rapid.png"
+  },
+  {
+    "id": 7,
+    "title": "sportcars",
+    "img": "/static/img/tiny/aventador.png"
+  }
+]

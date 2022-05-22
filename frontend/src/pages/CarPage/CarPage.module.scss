@@ -1,0 +1,30 @@
+.carPage {
+  width: 100%;
+  .container {
+    p {
+      margin: 15px 0;
+    }
+  }
+
+  .images {
+    width: 100%;
+
+    .mainImage {
+      img {
+        width: 50%;
+        margin-bottom: 15px;
+      }
+    }
+    img {
+      border-radius: 15px;
+      margin-bottom: 15px;
+    }
+    .previews {
+      display: flex;
+      img {
+        margin-right: 15px;
+        width: 100px;
+      }
+    }
+  }
+}

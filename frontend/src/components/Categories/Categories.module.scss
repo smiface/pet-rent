@@ -1,0 +1,9 @@
+@import '../../another/mixins.scss';
+.categories {
+  display: flex;
+  width: 100%;
+  .categories_grid {
+    @include grid;
+    grid-template-columns: repeat(auto-fill, 155px) !important;
+  }
+}

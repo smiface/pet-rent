@@ -1,0 +1,41 @@
+.home {
+  // height: calc(100% - 100px);
+  // display: flex;
+  flex-direction: column;
+  // justify-content: space-between;
+  // height: 100%;
+
+  display: grid;
+  height: 90vh;
+  grid-template-rows: 5vh 14vh 5vh 71vh 4vh;
+
+  @media screen and (max-width: 1440px) {
+    grid-template-rows: auto;
+  }
+  // grid-template-rows: 50px 130px 40px 100% 50px ;
+
+  * {
+    // border: 1px red solid;
+  }
+
+  // <Header cities={RootStore.filters.cities} />
+  // <Categories categories={RootStore.filters.categories} />
+  // <Filters />
+  // <Cars cars={RootStore.cars.filtredCars} />
+  // <Footer />
+
+  // flex-direction: column;
+
+  // 15 25  115 55px
+  // border: 5px blue solid;
+
+  section {
+    margin-top: 15px;
+  }
+
+  h2 {
+    width: 155px !important;
+    margin-right: 15px;
+    text-align: left;
+  }
+}

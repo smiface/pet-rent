@@ -1,0 +1,33 @@
+@import "../../another/mixins.scss";
+
+.cardLine {
+  @include cardLine;
+
+  input {
+    border: 2px black solid;
+    border-radius: 5px;
+    padding: 10px 15px;
+
+    /* Chrome, Safari, Edge, Opera */
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    &[type="number"] {
+      -moz-appearance: textfield;
+    }
+  }
+  input:nth-child(1) {
+    width: 100px;
+  }
+  input:nth-child(2) {
+    width: 50px;
+  }
+
+  button {
+   @include button;
+  }
+}

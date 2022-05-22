@@ -1,0 +1,12 @@
+.paymentPage {
+    *{
+        // border: 1px red solid;
+    }
+
+    header {
+        padding-bottom: 5px;
+    }
+    display: grid;
+    grid-template-rows: 5vh 5vh 5vh 80vh 5vh;
+    align-items: center;
+}

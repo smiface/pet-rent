@@ -1,0 +1,31 @@
+@import "../../another/mixins.scss";
+
+.filters {
+  display: flex;
+
+  .filters_grid {
+    @include grid;
+    grid-template-columns: repeat(auto-fill, 325px) !important;
+  }
+
+  .price {
+    display: flex;
+
+    h3 {
+        margin-right: 15px;
+    }
+    div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      input {
+        width: 50px;
+        font-size: 1.2rem;
+        border: none;
+        border-bottom: 2px black solid;
+        text-align: center;
+      }
+    }
+  }
+}

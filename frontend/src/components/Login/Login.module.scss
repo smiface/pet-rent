@@ -1,0 +1,18 @@
+@import "../../another/mixins.scss";
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  * {
+    border: 2px black solid;
+  }
+
+  button {
+    @include button;
+    padding: 15px 10px;
+  }
+}

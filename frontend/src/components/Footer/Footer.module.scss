@@ -1,0 +1,117 @@
+@import "../../another/mixins.scss";
+
+.footer {
+  display: flex;
+  justify-self: flex-end;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  position: relative;
+
+  .popup {
+    position: absolute;
+    top: -50px;
+    left: 450px;
+    border: 2px black solid;
+    border-radius: 15px;
+    border-bottom-left-radius: 0;
+    padding: 10px 15px;
+    background: white;
+
+    @media screen and (max-width: 900px) {
+      display: none;
+    }
+
+    button {
+      height: 30px;
+      width: 30px;
+      display: flex !important;
+      border-radius: 100%;
+      margin-left: 15px;
+
+      p {
+        margin: 0  0 2px -2px;
+      }
+    }
+  }
+
+  * {
+    align-items: center;
+    display: flex;
+  }
+
+  @media screen and (max-width: 900px) {
+    width: 100%;
+    flex-direction: column;
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      height: unset;
+    }
+    .code {
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    * {
+      margin-bottom: 10px;
+    }
+  }
+
+  .wrapper {
+    width: calc(100% - 155px - 155px);
+    display: flex;
+  }
+
+  p,
+  select,
+  input {
+    margin-right: 15px;
+    font-size: 1.1rem;
+  }
+
+  input {
+    width: 50px;
+    text-align: center;
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
+  }
+
+  button {
+    @include button;
+    border-radius: 5px;
+    background-color: unset;
+    width: 80px;
+  }
+
+  .card {
+    width: 155px;
+    select {
+      width: 100%;
+    }
+  }
+
+  nav {
+    width: 155px;
+    display: flex;
+    justify-content: space-between;
+
+    a {
+      @include button;
+      border-radius: 100%;
+      width: 30px;
+      height: 30px;
+      text-decoration: unset;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+@import '../../another/mixins.scss';
+
+.cardLine {
+    @include cardLine;
+    height: 50px;
+}
+
+.cardsColumn {
+    height: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+}
