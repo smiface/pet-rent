@@ -1,18 +1,29 @@
-import axios from "axios";
+import axios, { Axios } from "axios";
+import Cookies from "js-cookie";
 import { makeAutoObservable } from "mobx";
 import { TPayCard, TPayCardToAdd } from "../another/interfaces";
 
 class Payment {
-  constructor() {
+  public Root: any;
+
+  constructor(Root: any) {
     makeAutoObservable(this);
+    this.Root = Root;
   }
 
   code: number | null = null;
   cards: TPayCard[] = [];
   paymentList: [] = [];
+  popupStr: string = "";
+  isPopupShow: boolean = false;
+  pushId: number | null = null;
+
+  setShowPopup(boolean: boolean) {
+    this.isPopupShow = boolean;
+  }
 
   setCode(code: number) {
-    this.code = code
+    this.code = code;
   }
 
   setCards(cards: TPayCard[]) {
@@ -20,22 +31,81 @@ class Payment {
   }
 
   addCard(card: TPayCardToAdd) {
-    if (card.number.toString().length === 16 && card.cvv.toString().length === 3) {
-      let array = this.cards;
-      array.push({ ...card, addDate: Date.now() });
-      this.setCards(array);
+    const dataValid = () => card.number.toString().length === 16 && card.cvv.toString().length === 3;
+
+    if (dataValid()) {
+      const token = Cookies.get("session_token");
+      const data = { token: token, number: card.number, cvv: card.cvv };
+
+      axios
+        .post("card/add", data)
+        .then((res) => {
+          let array = this.cards;
+          array.push({ ...card, addDate: res.data.addDate });
+          this.setCards(array);
+        })
+        .catch((err) => {
+          // попап карта не добавлена
+          console.log(`err`);
+        });
     }
   }
 
+  setPopupStr(str: string) {
+    this.popupStr = str;
+  }
+
   removeCard(number: number) {
-    this.cards = this.cards.filter((card) => card.number != number);
+    const token = Cookies.get("session_token");
+    const data = { token: token, number: number };
+
+    axios
+      .post("/card/remove", data)
+      .then((res) => {
+        this.cards = this.cards.filter((card) => card.number != number);
+      })
+      .catch((err) => {
+        // попап карта не удалена
+        console.log(`err`);
+      });
+  }
+
+  requireCode(number: number) {
+    if (this.Root.cars.currentCar) {
+      const token = Cookies.get("session_token");
+      const data = { token: token, number: number };
+      axios
+        .post("/card/require_code", data)
+        .then((res) => {
+          this.setPopupStr(`Enter code  ( ${res.data.pushCode} ) `);
+          this.setShowPopup(true);
+          this.pushId = res.data.id;
+        })
+        .catch((err) => {
+          // попап код не запрошен
+          console.log(`err`);
+        });
+    }
   }
 
   handlePay() {
-    console.log(this.code)
-    // if (this.code?.toString().length === 3) {
-    //   axios.get("/pay.json").then((res) => console.log(res.data));
-    // }
+    if (this.code?.toString().length === 3) {
+      const token = Cookies.get("session_token");
+      const data = { token: token, cardId: this.Root.cars.currentCar.id, pushId: this.pushId, pushCode: this.code };
+
+      console.log("send data", data);
+
+      axios
+        .post("/card/pay", data)
+        .then((res) => {
+          // заблочить машину, закинуть в текущие заказы, роут на заказы
+          console.log(`всё ок`, res.data);
+        })
+        .catch((err) => {
+          // не удалось подтвердить оплату
+          console.log(`err`);
+        });
+    }
   }
 }
 

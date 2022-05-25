@@ -1,0 +1,133 @@
+{
+  "1": {
+    "id": 1,
+    "title": "s-klass",
+    "img": "/static/img/full/s-klass.png",
+    "images": ["/static/img/full/s-klass.png", "/static/img/full/g-klass.png", "/static/img/full/e-klass.png", "/static/img/full/maybach.png"],
+    "price": 42,
+    "category": "buisness",
+    "about": "Lorem",
+    "city": "Moscow"
+  },
+  "2": {
+    "id": 2,
+    "title": "g-klass",
+    "img": "/static/img/full/g-klass.png",
+    "images": ["/static/img/full/s-klass.png", "/static/img/full/g-klass.png", "/static/img/full/e-klass.png", "/static/img/full/maybach.png"],
+    "price": 2,
+    "category": "buisness",
+    "about": "Lorem",
+    "city": "Moscow"
+  },
+
+  "3": {
+    "id": 3,
+    "title": "e-klass",
+    "img": "/static/img/full/e-klass.png",
+    "images": ["/static/img/full/s-klass.png", "/static/img/full/g-klass.png", "/static/img/full/e-klass.png", "/static/img/full/maybach.png"],
+    "price": 3,
+    "category": "buisness",
+    "about": "Lorem",
+    "city": "Moscow"
+  },
+  "4": {
+    "id": 4,
+    "title": "maybach",
+    "img": "/static/img/full/maybach.png",
+    "images": ["/static/img/full/s-klass.png", "/static/img/full/g-klass.png", "/static/img/full/e-klass.png", "/static/img/full/maybach.png"],
+    "price": 4,
+    "category": "buisness",
+    "about": "Lorem",
+    "city": "Moscow"
+  },
+  "5": {
+    "id": 5,
+    "title": "callinan",
+    "img": "/static/img/full/callinan.png",
+    "images": ["/static/img/full/s-klass.png", "/static/img/full/g-klass.png", "/static/img/full/e-klass.png", "/static/img/full/maybach.png"],
+    "price": 5,
+    "category": "buisness",
+    "about": "Lorem",
+    "city": "Moscow"
+  },
+  "6": {
+    "id": 6,
+    "title": "ghost",
+    "img": "/static/img/full/ghost.png",
+    "images": ["/static/img/full/s-klass.png", "/static/img/full/g-klass.png", "/static/img/full/e-klass.png", "/static/img/full/maybach.png"],
+    "price": 6,
+    "category": "buisness",
+    "about": "Lorem",
+    "city": "Moscow"
+  },
+  "7": {
+    "id": 7,
+    "title": "Escalade",
+    "img": "/static/img/full/escalade.png",
+    "images": ["/static/img/full/s-klass.png", "/static/img/full/g-klass.png", "/static/img/full/e-klass.png", "/static/img/full/maybach.png"],
+    "price": 42,
+    "category": "comfort plus",
+    "about": "Lorem",
+    "city": "Moscow"
+  },
+  "8": {
+    "id": 8,
+    "title": "Kia Rio",
+    "img": "/static/img/full/kia-rio.png",
+    "images": ["/static/img/full/s-klass.png", "/static/img/full/g-klass.png", "/static/img/full/e-klass.png", "/static/img/full/maybach.png"],
+    "price": 5,
+    "category": "comfort",
+    "about": "Lorem",
+    "city": "Moscow"
+  },
+  "9": {
+    "id": 9,
+    "title": "Skoda Rapid",
+    "img": "/static/img/full/octavia.png",
+    "about": "Lorem",
+    "city": "saint-petersburg",
+    "images": ["/static/img/full/s-klass.png", "/static/img/full/g-klass.png", "/static/img/full/e-klass.png", "/static/img/full/maybach.png"],
+    "price": 4,
+    "category": "economy"
+  },
+  "10": {
+    "id": 10,
+    "title": "Skoda Octavia",
+    "img": "/static/img/full/octavia.png",
+    "images": ["/static/img/full/s-klass.png", "/static/img/full/g-klass.png", "/static/img/full/e-klass.png", "/static/img/full/maybach.png"],
+    "price": 8,
+    "category": "family",
+    "about": "Lorem",
+    "city": "Moscow"
+  },
+  "11": {
+    "id": 11,
+    "title": "Tundra",
+    "img": "/static/img/full/tundra.png",
+    "images": ["/static/img/full/s-klass.png", "/static/img/full/g-klass.png", "/static/img/full/e-klass.png", "/static/img/full/maybach.png"],
+    "price": 12,
+    "category": "offroad",
+    "about": "Lorem",
+    "city": "Moscow"
+  },
+  "12": {
+    "id": 12,
+    "title": "Aventador",
+    "img": "/static/img/full/aventador.png",
+    "images": ["/static/img/full/s-klass.png", "/static/img/full/g-klass.png", "/static/img/full/e-klass.png", "/static/img/full/maybach.png"],
+    "price": 24,
+    "category": "sportcars",
+    "about": "Lorem",
+    "city": "Moscow"
+  },
+  "13": {
+    "id": 13,
+    "title": "maybach",
+    "img": "/static/img/full/maybach.png",
+    "images": ["/static/img/full/s-klass.png", "/static/img/full/g-klass.png", "/static/img/full/e-klass.png", "/static/img/full/maybach.png"],
+    "price": 4,
+    "category": "buisness",
+    "about": "Lorem",
+    "city": "Saint-Petersburg"
+  }
+}

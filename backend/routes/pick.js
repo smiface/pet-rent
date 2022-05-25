@@ -16,10 +16,7 @@ router.get("/cars:city", (req, res) => {
     const {about, ...pubCar} = car;
     return pubCar
   }
-
   const carsInCity = filterByCity(db.cars, req.params.city).map(publicCar);
-  
-  console.log(carsInCity)
   res.json(carsInCity);
 });
 
@@ -32,6 +29,7 @@ router.get("/car:id", (req, res) => {
     res.status(401).send()
   }
 });
+
 router.get("/cities", (req, res) => {
   res.json(db.cities)
 });

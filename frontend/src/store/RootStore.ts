@@ -14,7 +14,7 @@ class RootStore {
     public car = new CarStore(this)
     public auth = new Auth(this)
     public cars = new Cars(this)
-    public payment = new Payment()
+    public payment = new Payment(this)
     public filters = new Filters(this)
 }
 

@@ -5,7 +5,7 @@ const { db } = require("./db");
 const cors = require("cors");
 const app = express();
 const cookieParser = require('cookie-parser');
-const { pickRouter, authRouter } = require("./routes");
+const { pickRouter, authRouter , paymentRouter} = require("./routes");
 // const categoriesRouter = require('./routes/categories');
 
 const PORT = process.env.PORT || 8888;
@@ -38,6 +38,7 @@ app.use("/static", express.static(path.join(__dirname, "public")));
 
 app.use("/user", authRouter);
 app.use("/pick", pickRouter);
+app.use("/card", paymentRouter);
 // require("./auth/auth")(app);
 
 const getPageList = (str, page_number, page_size = 7) => {
