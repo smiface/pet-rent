@@ -17,6 +17,11 @@ class Payment {
   popupStr: string = "";
   isPopupShow: boolean = false;
   pushId: number | null = null;
+  selected: any = "";
+
+  setSelected(value: string) {
+    this.selected = value;
+  }
 
   setShowPopup(boolean: boolean) {
     this.isPopupShow = boolean;
