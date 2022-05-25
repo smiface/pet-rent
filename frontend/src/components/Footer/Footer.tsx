@@ -20,6 +20,7 @@ const Footer = () => {
   };
 
   const handleSelectCard = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    RootStore.payment.setSelected(e.target.value);
     RootStore.payment.requireCode(Number(e.currentTarget.value));
   };
 
@@ -41,10 +42,8 @@ const Footer = () => {
           false
         )}
 
-        <select id="testId" defaultValue={"card"} onChange={(e) => handleSelectCard(e)}>
-          <option value="card" hidden disabled>
-            Card :
-          </option>
+        <select value={RootStore.payment.selected} onChange={(e) => handleSelectCard(e)}>
+          <option value="card">Card :</option>
           {Store.payment.cards.map((el) => (
             <option key={el.number} value={el.number}>
               {CardNumberEnd(el.number)}

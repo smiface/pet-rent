@@ -19,7 +19,11 @@ class Cars {
   }
 
   setCurrentCar(car: TCar) {
-    this.currentCar = car;
+    if (this.currentCar != car) {
+      this.currentCar = car;
+      this.Root.payment.setSelected("");
+      this.Root.payment.setShowPopup(false);
+    }
   }
 
   setFiltredCars(cars: TCar[]) {
