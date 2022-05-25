@@ -1,0 +1,64 @@
+compress images before render
+sceleton
+
+сделать попап карта не добавлена Payment.ts
+сделать попап карта не удалена Payment.ts
+сброс селекта карты при выборе машины
+
+user/registrate
+    front  ->   login, password
+    back   <-   is login free add to userData {login, password}, generate session_token
+    back   ->   200 {login, password, session_token} | 400
+    front  <-   setState(userId), Cookies.set(session_token, session_token)
+
+user/login
+    front  ->   login, password
+    back   <-   check userData[login][password] == password, write token
+    back   ->   200 {session_token} | 400
+    front  <-   setState(userId), Cookies.set(session_token, session_token)
+
+user/logout
+    front  ->   token 
+    back   <-   if token active remove 
+    back   ->   200| 400
+    front  <-   if 200 Cookies.remove(session_token), setState(myId = 0)
+
+    front  ->   
+    back   <-   
+    back   ->   
+    front  <-   
+
+##############################################################################################################################
+
++fix cars title active home page
++умная выборка store -> filters -> setFilters
++max input number addPaymentCard
+
++ card/add 
+    headers: session_token (Cookies.get('session_token))
+    front  ->   from state { cardNumber, cardCvv }
+    back   <-   if auth ok and if card not added - add in file usersData new card with addDate: date.now() 
+    back   ->   200 + date.now() | 400   
+    front  <-   setCards(cardToAdd)
+
+    
++ card/remove
+    headers: session_token (Cookies.get('session_token))
+    front  ->   cardNumberToRemove from state
+    back   <-   if auth ok remove from file userData card with cardNumber
+    back   ->   200 | 400
+    front  <-   setCards(cards.filter(card => card.number !== number))
+
++ card/require_code
+    headers: session_token (Cookies.get('session_token))
+    front  ->   cardNumberToPush from state
+    back   <-   if auth ok generate code and write [pushId, cardNumber, pushCode] in file and 
+    back   ->   200 [pushId, pushCode] | 400
+    front  <-  setState(requireId, pushCode)
+
++ card/pay
+    headers: session_token (Cookies.get('session_token))
+    front  ->   city, carId, pushId, pushCode
+    back   <-   if auth ok add db.pushes[pushId].code == pushCode add in userData[rents] {city, carId, addDate }, set db.pushes[pushId] done;
+    back   ->   200 [addDate, carId] | 400
+    front  <-   profile.rents add [addDate, carId]
