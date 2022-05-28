@@ -7,7 +7,6 @@ const useCars = () => {
     if (e.button === 1) {
       // do something on middle mouse button click
       window.open("/car/1", "_blank");
-      console.log("mid");
     } else {
       RootStore.cars.setCurrentCar(el);
     }

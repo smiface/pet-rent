@@ -24,6 +24,7 @@ class Cars {
       this.Root.payment.setSelected("");
       this.Root.payment.setShowPopup(false);
     }
+    console.log('im here')
   }
 
   setFiltredCars(cars: TCar[]) {

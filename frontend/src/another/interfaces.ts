@@ -33,3 +33,8 @@ export type TPayCardToAdd = {
   number: number;
   cvv: number;
 };
+
+export type TAlert = {
+  id: number,
+  title: string
+}

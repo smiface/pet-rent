@@ -31,16 +31,17 @@ const Footer = () => {
       <div className={style.wrapper}>
         <p>Start price: {Store.cars.currentCar ? Store.cars.currentCar.price * 10 : 0} $</p>
 
-        {RootStore.payment.isPopupShow ? (
+        {/* {RootStore.payment.isPopupShow ? (
           <div className={style.popup}>
             {RootStore.payment.popupStr}
             <button onClick={() => RootStore.payment.setShowPopup(false)}>
-              <p>x</p>
+              <b></b>
+              <b></b>
             </button>
           </div>
         ) : (
           false
-        )}
+        )} */}
 
         <select value={RootStore.payment.selected} onChange={(e) => handleSelectCard(e)}>
           <option value="card">Card :</option>

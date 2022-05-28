@@ -1,10 +1,3 @@
-compress images before render
-sceleton
-
-сделать попап карта не добавлена Payment.ts
-сделать попап карта не удалена Payment.ts
-сброс селекта карты при выборе машины
-
 user/registrate
     front  ->   login, password
     back   <-   is login free add to userData {login, password}, generate session_token
@@ -29,6 +22,17 @@ user/logout
     front  <-   
 
 ##############################################################################################################################
+
+sceleton + compress images before render ? NEXT.js
+
++сделать попап карта не удалена Payment.ts
++сброс селекта карты при выборе машины
+
++сделать попап карта не добавлена Payment.ts
++Карта успешно добавлена
++Не удалось добавить карту
++Номер карты должен состоять из 16 цифр
++CVV карты должен состоять из 3 цифр
 
 +fix cars title active home page
 +умная выборка store -> filters -> setFilters

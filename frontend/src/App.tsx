@@ -10,6 +10,7 @@ import RootStore from "./store/RootStore";
 import Login from "./components/Login/Login";
 import { useEffect } from "react";
 import Header from "./components/Header/Header";
+import Notifications from "./components/Notifications/Notifications";
 
 function App() {
   const checkAuth = (component: JSX.Element) => {
@@ -23,6 +24,7 @@ function App() {
   return (
     <div className="App">
       {/* <Header /> */}
+      <Notifications />
       <Routes>
         <Route path="*" element={<NotFoundPage />} />
         <Route path="/" element={checkAuth(<Navigate to="city/moscow" replace />)} />

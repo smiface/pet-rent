@@ -18,7 +18,8 @@ const saveUsersData = (cb) => {
 };
 
 router.post("/add", (req, res) => {
-  const canAddCard = req.user ? !req.user.cards.find((card) => card.number === req.body.number) : false;
+  // const canAddCard = req.user ? !req.user.cards.find((card) => card.number === req.body.number) : false;
+  const canAddCard = !req.user.cards.find((card) => card.number === req.body.number);
 
   if (canAddCard) {
     addDate = Date.now();
@@ -30,7 +31,8 @@ router.post("/add", (req, res) => {
 });
 
 router.post("/remove", (req, res) => {
-  const canRemoveCard = req.user ? req.user.cards.find((card) => card.number === req.body.number) : false;
+  // const canRemoveCard = req.user ? req.user.cards.find((card) => card.number === req.body.number) : false;
+  const canRemoveCard = req.user.cards.find((card) => card.number === req.body.number);
 
   if (canRemoveCard) {
     db.usersData[req.token].cards = req.user.cards.filter((card) => card.number == req.body.number);
@@ -42,7 +44,7 @@ router.post("/remove", (req, res) => {
 
 router.post("/require_code", (req, res) => {
   // pushId ( Date.now()), cardNumber, pushCode, status
-  const newPayData = { id:  Date.now().toString(), cardNumber: req.body.number, pushCode: randomInteger(100, 999) };
+  const newPayData = { id: Date.now().toString(), cardNumber: req.body.number, pushCode: randomInteger(100, 999) };
   req.user.pays[newPayData.id] = { cardNumber: newPayData.cardNumber, pushCode: newPayData.pushCode, status: "waiting" };
   saveUsersData(() => res.json({ id: newPayData.id, pushCode: newPayData.pushCode }));
 });

@@ -7,33 +7,24 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px 0;
-  position: relative;
+  // position: relative;
 
   .popup {
-    position: absolute;
-    top: -50px;
-    left: 450px;
-    border: 2px black solid;
-    border-radius: 15px;
-    border-bottom-left-radius: 0;
-    padding: 10px 15px;
-    background: white;
+    // @include popup;
+    // top: -50px;
+    // left: 450px;
+
+    top: 50px;
+    right: 0px;
+
+    // border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
 
     @media screen and (max-width: 900px) {
       display: none;
     }
 
-    button {
-      height: 30px;
-      width: 30px;
-      display: flex !important;
-      border-radius: 100%;
-      margin-left: 15px;
-
-      p {
-        margin: 0  0 2px -2px;
-      }
-    }
+   
   }
 
   * {

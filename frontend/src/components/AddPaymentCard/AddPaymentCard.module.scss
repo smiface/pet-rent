@@ -2,6 +2,7 @@
 
 .cardLine {
   @include cardLine;
+  position: relative;
 
   input {
     border: 2px black solid;

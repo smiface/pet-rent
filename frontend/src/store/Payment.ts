@@ -3,6 +3,13 @@ import Cookies from "js-cookie";
 import { makeAutoObservable } from "mobx";
 import { TPayCard, TPayCardToAdd } from "../another/interfaces";
 
+const AddCardPopupString = [
+  "Карта успешно добавлена",
+  "Не удалось добавить карту",
+  "Номер карты должен состоять из 16 цифр",
+  "CVV карты должен состоять из 3 цифр",
+];
+
 class Payment {
   public Root: any;
 
@@ -15,7 +22,7 @@ class Payment {
   cards: TPayCard[] = [];
   paymentList: [] = [];
   popupStr: string = "";
-  isPopupShow: boolean = false;
+  isPopupShow: boolean = true;
   pushId: number | null = null;
   selected: any = "";
 
@@ -38,21 +45,34 @@ class Payment {
   addCard(card: TPayCardToAdd) {
     const dataValid = () => card.number.toString().length === 16 && card.cvv.toString().length === 3;
 
-    if (dataValid()) {
-      const token = Cookies.get("session_token");
-      const data = { token: token, number: card.number, cvv: card.cvv };
+    if (this.cards.find((c) => c.number == card.number)) {
+      this.Root.alerts.addAlert("Карта уже добавлена");
+    } else {
+      if (dataValid()) {
+        const token = Cookies.get("session_token");
+        const data = { token: token, number: card.number, cvv: card.cvv };
 
-      axios
-        .post("card/add", data)
-        .then((res) => {
-          let array = this.cards;
-          array.push({ ...card, addDate: res.data.addDate });
-          this.setCards(array);
-        })
-        .catch((err) => {
-          // попап карта не добавлена
-          console.log(`err`);
-        });
+        axios
+          .post("card/add", data)
+          .then((res) => {
+            let array = this.cards;
+            array.push({ ...card, addDate: res.data.addDate });
+            this.setCards(array);
+            this.Root.alerts.addAlert("Карта успешно добавлена");
+          })
+          .catch((err) => {
+            // попап карта не добавлена
+            this.Root.alerts.addAlert("Не удалось добавить карту");
+            console.log(`err`);
+          });
+      } else {
+        if (card.number.toString().length !== 16) {
+          this.Root.alerts.addAlert("Номер карты должен состоять из 16 цифр");
+        }
+        if (card.cvv.toString().length !== 3) {
+          this.Root.alerts.addAlert("CVV карты должен состоять из 3 цифр");
+        }
+      }
     }
   }
 
@@ -68,9 +88,11 @@ class Payment {
       .post("/card/remove", data)
       .then((res) => {
         this.cards = this.cards.filter((card) => card.number != number);
+        this.Root.alerts.addAlert("Карта успешно удалена");
       })
       .catch((err) => {
         // попап карта не удалена
+        this.Root.alerts.addAlert("Не удалось удалить карту");
         console.log(`err`);
       });
   }
@@ -82,8 +104,11 @@ class Payment {
       axios
         .post("/card/require_code", data)
         .then((res) => {
-          this.setPopupStr(`Enter code  ( ${res.data.pushCode} ) `);
-          this.setShowPopup(true);
+          // this.setPopupStr(`Enter code  ( ${res.data.pushCode} ) `);
+          // this.setShowPopup(true);
+
+          this.Root.alerts.addAlert(`Enter code  ( ${res.data.pushCode} ) `);
+
           this.pushId = res.data.id;
         })
         .catch((err) => {

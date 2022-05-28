@@ -27,7 +27,7 @@ const Card = ({ size, item, fn, isActive }: { size?: TSize; item: TCardItem; fn:
         <h3 className={isActive ? style.active : ""}>{item.title.toUpperCase()}</h3>
 
         <div className={style.wrapper}>
-          <img src={item.img} alt="" />
+          <img src={item.img} alt=""  />
         </div>
       </div>
     </motion.div>

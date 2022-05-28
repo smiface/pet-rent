@@ -12,7 +12,7 @@ function PaymentCards({ cards }: { cards: TPayCard[] }) {
         <div>addDate</div>
       </div>
       {cards.map((el) => (
-        <div className={style.cardLine}>
+        <div className={style.cardLine} key={el.number}>
           <div>{el.number}</div>
           <div>{el.cvv}</div>
           <div>{new Date(el.addDate).toLocaleDateString()} {new Date(el.addDate).toLocaleTimeString()}</div>

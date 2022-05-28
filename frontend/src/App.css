@@ -12,6 +12,7 @@
   margin: 0 auto;
   padding: 0 auto;
   height: 100vh;
+  position: relative;
 }
 
 @media screen and (max-width: 1440px) {
